@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+      - "9229:9229"
+    depends_on:
+      - "db"
+    environment:
+      NODE_ENV: development
+      DB_USER: user
+      DB_PASSWORD: password
+      DB_NAME: secret_form
+      DB_HOST: db
+      DB_CLIENT: pg
+    volumes:
+      - ./vue/build:/app/src/views
+  db:
+    image: "postgres"
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: secret_form
+    ports:
+      - "5432:5432"

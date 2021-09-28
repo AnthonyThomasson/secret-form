@@ -1,3 +1,4 @@
 .DS_Store
 /express/node_modules/
+/express/src/views
 /vue/node_modules/
