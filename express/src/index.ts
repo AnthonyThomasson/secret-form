@@ -13,7 +13,7 @@ app.use(
     .use(cors()),
 );
 
-const staticDir = path.join(`${__dirname}/views`);
+const staticDir = path.join(`${__dirname}/../views`);
 app.use(express.static(staticDir));
 app.get('/*', (req, res) => {
   res.sendFile(`${staticDir}/index.html`);

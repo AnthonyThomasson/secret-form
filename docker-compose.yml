@@ -15,7 +15,8 @@ services:
       DB_HOST: db
       DB_CLIENT: pg
     volumes:
-      - ./vue/build:/app/src/views
+      - ./vue/build:/app/views
+      - ./express/src:/app/src
   db:
     image: "postgres"
     restart: always
